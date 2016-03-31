@@ -97,25 +97,55 @@ module.exports = function (grunt) {
 					"wwwroot/css/main.css": "styles/main.less"
 				}
 			}
-		},		
+		},
+		server: {
+			port: 9001,
+			livereload_port: 35729
+		},
+		connect: {
+			developer: {
+				options: {
+					hostname: 'localhost',
+					port: '<%= server.port %>',
+					livereload: true,
+					base: 'wwwroot/',
+					open: {
+						target: 'http://localhost:<%= server.port %>'
+					},
+					gruntLogHeader: false
+				}
+			},
+			serve: {
+				options: {
+					hostname: 'localhost',
+					port: '<%= server.port %>',
+					base: 'wwwroot/',
+					open: true,
+					keepalive: true
+				}
+			}
+		},
 		watch: {
 			files: ["scripts/**/*.js", "styles/**/*.less", "wwwroot/**/*.html"],
 			tasks: ["all"],
 			options: {
 				livereload: true
 			},
-		}
+		}		
 	});
 
+	grunt.loadNpmTasks('grunt-contrib-connect');
 	grunt.loadNpmTasks("grunt-bower-task");
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-less');
-	
+	grunt.loadNpmTasks('grunt-contrib-concat');
 
 	grunt.registerTask("default", ["bower:install"]); // maybe not needed
 	grunt.registerTask("bower", 'bower');
 	grunt.registerTask("all", ['copy', 'jshint', 'less']);
+
+	grunt.registerTask('dev', ['all', 'connect:developer', 'watch']);
 };

@@ -10,13 +10,16 @@ app.service("songService", function ($http) {
 
 var songsControllers = angular.module('songsControllers', []);
 
-
 songsControllers.controller("mainCtrl", function ($scope, $http, songService) {
 	$scope.formData = [];
 
-	//$http.get("http://localhost:3000/songs").success(function (data) {
-	//	$scope.formData = data;
-	//});
+	$http.get("http://localhost:3000/db").success(function (data) {
+		for (var i = 0; i < data.length; i++) {
+			var curTrack = data[i].url;
+			data[i].url = curTrack.replace('spotify:track:', '');
+		}
+		$scope.formData = data;
+	});
 
 	if (!$scope.formData.length) {
 		songService.getSongs().success(function (result) {
