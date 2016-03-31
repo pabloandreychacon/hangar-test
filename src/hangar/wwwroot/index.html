@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html ng-app="hangarApp">
+<head>
+	<title>Hangar</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link href="css/main.css" rel="stylesheet" />
+</head>
+<body ng-controller="mainCtrl">
+	<div id="animate-area">
+		<div class="container-fluid">
+			<div class="row nav">
+				<div class="col-xs-9 col-xs-offset-3 col-sm-5 col-sm-offset-7 n-p-l">
+					<ul>
+						<li class="r-links"><a href="#">Now Playing</a></li>
+						<li class="r-links"><a href="#">Rate Songs</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="main-content text-center">
+						<div ng-view></div>
+
+						
+
+					</div>
+
+					<div class="row footer">
+						<div class="col-xs-6 n-p-l">
+							<p class="left">© 2011 The Hangar Interactive. All rights reserved.</p>
+						</div>
+						<div class="col-xs-6">
+							<p class="right"><a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a> | <a href="#">Contact Us</a></p>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-sanitize.min.js"></script>
+	<script src="lib/angular-route/angular-route.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>

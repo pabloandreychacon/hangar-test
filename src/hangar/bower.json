@@ -1,0 +1,13 @@
+{
+	"name": "ASP.NET",
+	"private": true,
+  "dependencies": {
+    "fotorama": "*",
+		"jquery": "*",
+		"jqueri-ui": "*",
+    "bootstrap": "*",
+    "angular": "*",
+		"Font-Awesome": "*",
+		"angular-route": "*"
+  }
+}

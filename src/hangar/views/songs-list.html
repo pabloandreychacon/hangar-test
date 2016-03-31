@@ -1,0 +1,50 @@
+﻿<div class="row title">
+	<div class="col-xs-3">
+		<img src="img/wings.png" alt="" />
+	</div>
+	<div class="col-xs-9">
+		<h2>Hangar o’clock songs</h2>
+
+	</div>
+</div>
+
+<div class="row search">
+	<div class="col-xs-12">
+		<form class="form-horizontal">
+			<div class="form-group">
+				<div class="input-group">
+					<input type="search" class="form-control input-small" id="exampleInputAmount" placeholder="Search Music" ng-model="filterByText">
+					<div class="input-group-addon"><a href="#" ng-click="showProfile()"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a></div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+
+<div class="row mysongs">
+	<div class="col-xs-12">
+		<div class="row song" ng-repeat="item in formData | filter:isFound" ng-class-odd="'odd'" ng-class-even="'even'">
+			<div class="col-xs-2">
+				<a class="play-btn n-p-rl" href="#/songs/{{item.url}}"><img src="img/play.png" alt="" /></a>
+			</div>
+			<div class="col-xs-5 col-sm-5">
+				<p class="small song-title">{{item.songname}}</p>
+				<p class="xsmall song-artist"><i>{{item.artistname}}</i></p>
+			</div>
+			<div class="col-xs-5 col-sm-5 toggle">
+				<div class="row">
+					<div class="col-xs-12">
+						<span class="memory-radio left">
+							<input type="radio" value="0" ng-model="optionSelected">
+							<span class="memory-box"><p>Today</p></span>
+						</span>
+						<span class="memory-radio right">
+							<input type="radio" value="1" ng-model="optionSelected">
+							<span class="memory-box"><p>Friday</p></span>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
